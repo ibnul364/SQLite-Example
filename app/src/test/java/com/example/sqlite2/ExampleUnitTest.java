@@ -1,4 +1,4 @@
-package com.example.sqlite;
+package com.example.sqlite2;
 
 import org.junit.Test;
 
