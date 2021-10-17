@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDB;
     EditText eName,esurName,eMarks,editId;
-    Button button,button2,button3;
+    Button button,button2,button3,button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +30,15 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
 
         addData();
         showAll();
         updateData();
+        deletedata();
 
 
     }
-
 
 
     private void addData() {
@@ -102,4 +103,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void deletedata() {
+        button4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Integer deleteddata = myDB.deleteData(editId.getText().toString());
+
+                if(deleteddata > 0){
+                    Toast.makeText(MainActivity.this,"Data deleted",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this,"Data not deleted",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 }

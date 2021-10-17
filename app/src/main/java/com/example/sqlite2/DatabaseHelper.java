@@ -64,8 +64,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_2,name);
         values.put(COLUMN_3,surName);
         values.put(COLUMN_4,marks);
-        db.update(TABLE_NAME,values,"id = ?",new String[] {id});
+        db.update(TABLE_NAME,values,"ID = ? ",new String[] {id});
         return true;
+    }
+
+    public Integer deleteData(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,"ID = ? ",new String[] {id});
+
     }
 
 
