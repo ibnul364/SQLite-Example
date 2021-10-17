@@ -57,6 +57,22 @@
         android:inputType="number"
         />
 
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ID" />
+
+    <EditText
+        android:id="@+id/ids"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:ems="10"
+        android:inputType="number"
+        />
+
     <Button
         android:id="@+id/button"
         android:layout_marginTop="20dp"
@@ -72,4 +88,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Show Data" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Update Data" />
 </LinearLayout>

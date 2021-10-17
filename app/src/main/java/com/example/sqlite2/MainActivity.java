@@ -13,8 +13,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDB;
-    EditText eName,esurName,eMarks;
-    Button button,button2;
+    EditText eName,esurName,eMarks,editId;
+    Button button,button2,button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +26,18 @@ public class MainActivity extends AppCompatActivity {
         eName = findViewById(R.id.namemm);
         esurName = findViewById(R.id.surnamess);
         eMarks = findViewById(R.id.markss);
+        editId = findViewById(R.id.ids);
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
         addData();
         showAll();
+        updateData();
 
 
     }
+
 
 
     private void addData() {
@@ -82,5 +86,20 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
 
+    }
+
+    private void updateData() {
+        button3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                boolean isUpdated = myDB.updateData(editId.getText().toString(),eName.getText().toString(),esurName.getText().toString(),eMarks.getText().toString());
+
+                if(isUpdated){
+                    Toast.makeText(MainActivity.this,"Data updated",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this,"Data not updated",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
